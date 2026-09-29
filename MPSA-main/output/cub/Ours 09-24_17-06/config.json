@@ -1,0 +1,70 @@
+cuda_visible: '0'
+data:
+  autoaug: false
+  batch_size: 16
+  blur: 0.1
+  color: 0.0
+  cutmix: 0.0
+  data_root: D:/MPSA
+  dataset: cub
+  hue: 0.0
+  img_size: 384
+  log_path: ./output\cub\Ours 09-24_17-06
+  mixup: 0.0
+  no_crop: false
+  padding: 0
+  resize: 512
+  rotate: 0
+device: cuda
+local_rank: -1
+misc:
+  amp: true
+  eval_every: 1
+  eval_mode: false
+  exp_name: cub
+  fused_window: true
+  log_name: Ours
+  output: ./output
+  seed: 42
+  throughput: false
+model:
+  baseline_model: false
+  drop_path: 0.2
+  dropout: 0.0
+  label_smooth: 0.1
+  name: Swin Base
+  num_classes: 1000
+  parameters: 0
+  pre_suffix: .pth
+  pre_version: ''
+  pretrained: pretrained\Swin Base.pth
+  resume: ''
+  type: swin
+nprocess: 1
+parameters:
+  att_drop: 0.1
+  cross_layer: true
+  fwp: true
+  head_drop: 0.2
+  num_heads: 32
+  parts_base: 0.0
+  parts_drop: 0.4
+  parts_ratio: 2
+  pos: true
+train:
+  betas:
+  - 0.9
+  - 0.999
+  checkpoint: true
+  clip_grad: 10.0
+  epochs: 50
+  eps: 1.0e-08
+  freeze_backbone: false
+  lr: 0.00025
+  momentum: 0.9
+  optimizer: SGD
+  scheduler: cosine
+  start_epoch: 0
+  warmup_epochs: 5
+  weight_decay: 1.0e-08
+write: true

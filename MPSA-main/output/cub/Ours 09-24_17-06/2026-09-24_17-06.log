@@ -1,0 +1,53 @@
+============================     Data Settings      ============================
+dataset       cub                       batch_size    16                     
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+data_root     D:/MPSA                   img_size      384                    
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+resize        512                       padding       0                      
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+no_crop       0                         autoaug       0                      
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+blur          0.1                       color         0.0                    
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+hue           0.0                       rotate        0                      
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+mixup         0.0                       cutmix        0.0                    
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+log_path      ./output\cub\Ours 09-24_17-06   
+============================    Hyper Parameters    ============================
+parts_ratio   2             num_heads     32            att_drop      0.1         
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+head_drop     0.2           parts_drop    0.4           fwp           1           
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+pos           1             parts_base    0.0           cross_layer   1             
+============================   Training Settings    ============================
+start_epoch   0             epochs        50            warmup_epochs 5           
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+weight_decay  1e-08         clip_grad     10.0          checkpoint    1           
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+lr            0.00025       scheduler     cosine        optimizer     SGD         
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+freeze_backbone0             eps           1e-08         betas         0.9,0.999   
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+momentum      0.9           
+============================     Other Settings     ============================
+amp           1             output        ./output      exp_name      cub         
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+log_name      Ours          eval_every    1             seed          42          
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+eval_mode     0             throughput    0             fused_window  1             
+============================    Model Structure     ============================
+type          swin          name          Swin Base     baseline_model0           
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+pretrained    pretrained\Swin Base.pth  pre_version                 pre_suffix    .pth        
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+resume                      num_classes   200           drop_path     0.2         
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+dropout       0.0           label_smooth  0.1           parameters    97.365M       
+============================  Training Information  ============================
+Train samples 5994                      Test samples  5794                   
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Total Batch Size  16                    Load Time     5s                     
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Train Steps   18700                     Warm Epochs   5                         
+============================     Start Training     ============================
